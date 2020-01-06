@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonOptionInterface } from 'src/app/models/button-option/button-option.model';
 
@@ -10,6 +10,7 @@ import { ButtonOptionInterface } from 'src/app/models/button-option/button-optio
 export class NavigationBarComponent implements OnInit {
 
     @Input() items: Array<ButtonOptionInterface> = [];
+    @Output() buttonClicked: EventEmitter<ButtonOptionInterface> = new EventEmitter<ButtonOptionInterface>();
 
     constructor(
         private router: Router
@@ -17,7 +18,11 @@ export class NavigationBarComponent implements OnInit {
 
     ngOnInit() {}
 
-    navigate(url: string) {
-        this.router.navigateByUrl(url);
+    click(item: ButtonOptionInterface) {
+        if (item.url) {
+            this.router.navigateByUrl(item.url);
+        } else {
+            this.buttonClicked.emit(item);
+        }
     }
 }

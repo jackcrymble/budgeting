@@ -1,5 +1,5 @@
 <div class="container">
-    <button mat-button class="btn" *ngFor="let item of items" (click)="navigate(item.url)" >
+    <button mat-button class="btn" *ngFor="let item of items" (click)="click(item)" >
         <mat-icon>{{item.icon}}</mat-icon>
         <p>{{item.name}}</p>
     </button>

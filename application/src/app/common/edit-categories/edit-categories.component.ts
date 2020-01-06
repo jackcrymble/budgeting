@@ -4,6 +4,8 @@ import { CategoryGroupService } from 'src/app/services/category-group.service';
 import { CategoryGroupInterface } from 'src/app/models/category-group/category-group.model';
 import { Subscription } from 'rxjs';
 import { testCategoryGroupData } from 'src/app/models/category-group/category-group.data';
+import { MatDialog } from '@angular/material';
+import { AddCategoryGroupComponent } from '../add-category-group/add-category-group.component';
 
 @Component({
     selector: 'app-edit-categories',
@@ -38,7 +40,8 @@ export class EditCategoriesComponent implements OnInit, OnDestroy {
 
     constructor(
         private categoryGroupService: CategoryGroupService,
-        private cd: ChangeDetectorRef
+        private cd: ChangeDetectorRef,
+        private dialog: MatDialog
     ) { }
 
     ngOnInit() {
@@ -49,8 +52,22 @@ export class EditCategoriesComponent implements OnInit, OnDestroy {
         this.categoryGroupSubscription.unsubscribe();
     }
 
-    onClick() {
+    onHeaderButtonClick(item: ButtonOptionInterface) {
         this.closeView.emit();
+    }
+
+    onFooterButtonClick(item: ButtonOptionInterface) {
+        if (item.name === 'New Group') {
+            const dialogRef = this.dialog.open(AddCategoryGroupComponent);
+
+            dialogRef.afterClosed().subscribe(resp => {
+                if (resp) {
+                    this.categoryGroupService.addCategoryGroup(resp).subscribe(() => {
+                        this.updateCategoryGroups();
+                    });
+                }
+            });
+        }
     }
 
     updateCategoryGroups() {

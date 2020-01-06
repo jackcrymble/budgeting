@@ -3,7 +3,7 @@ node_modules/
 apks/
 *-cordova/
 dist/
-
+application/dist/
 # Files
 
 

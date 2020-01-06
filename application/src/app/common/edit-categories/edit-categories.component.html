@@ -1,7 +1,7 @@
-<app-header [title]="'Edit Categories'" [options]="headerOptions" (buttonClicked)="onClick()"></app-header>
+<app-header [title]="'Edit Categories'" [options]="headerOptions" (buttonClicked)="onHeaderButtonClick($event)"></app-header>
 
 <div [style.width]="'100%'" *ngFor="let cg of categoryGroups">
     <app-category-group [categoryGroup]="cg" [editMode]="'true'"></app-category-group>
 </div>
 
-<app-navigation-bar class="footer" [items]="footerOptions"></app-navigation-bar>
+<app-navigation-bar class="footer" [items]="footerOptions" (buttonClicked)="onFooterButtonClick($event)"></app-navigation-bar>
