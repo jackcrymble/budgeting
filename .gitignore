@@ -1,2 +1,4 @@
-# Node modules
+# Folders
 node_modules/
+apks/
+*-cordova/
