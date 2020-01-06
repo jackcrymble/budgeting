@@ -75,7 +75,8 @@
 - Add editMode to categoryGroups and category components
 - Began modifying html for categorygroup to show check box and move button. Additional functionality required
 
-TODO:
+## Januar 6th
+- Create GitHub project and push code
+- Add category group modal
 - Use save category groups service in budget view
-- Add category group
 
