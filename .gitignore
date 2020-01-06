@@ -2,3 +2,7 @@
 node_modules/
 apks/
 *-cordova/
+
+
+# Files
+package-lock.json
