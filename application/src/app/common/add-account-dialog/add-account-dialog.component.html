@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+    <p>What type of account are you adding?</p>
+    <mat-form-field>
+        <input matInput placeholder="Account type" [formControl]="type">
+    </mat-form-field>
+    <p>Give it a nickname</p>
+    <mat-form-field>
+        <input matInput placeholder="Name for account" [formControl]="name">
+    </mat-form-field>
+    <p>What is your current account balance?</p>
+    <mat-form-field>
+        <input matInput placeholder="100.00" [formControl]="balance">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="createAccount()" cdkFocusInitial>Add Account</button>
+</div>

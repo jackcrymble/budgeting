@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .row {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+}

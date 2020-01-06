@@ -1,0 +1,30 @@
+<div class="container">
+    <div>
+        <div class="option-container">
+            <mat-slide-toggle [checked]="true" (change)="toggleChange()" #slider></mat-slide-toggle>
+            <span class="number" [ngClass]="negative ? 'negative' : 'positive' " (click)="toggleNumberPad()">{{ negative ? '-' : '' }} {{ amount | currency:'GBP' }}</span>
+        </div>
+        <div class="option-container">
+            <span>PAYEE</span>
+            <span>some payee</span>
+        </div>
+        <div class="option-container">
+            <span>CATEGORY</span>
+            <span>some category</span>
+        </div>
+        <div class="option-container">
+            <span>ACCOUNT</span>
+            <span>some account</span>
+        </div>
+        <div class="option-container">
+            <span>DATE</span>
+            <span>some date</span>
+        </div>
+        <div class="option-container">
+            <span>NOTES</span>
+            <span>some notes</span>
+        </div>
+    </div>
+    <app-number-pad [class.hidden]="!showNumberPad" (numberChange)="updateAmount($event)" (clear)="resetAmount()" (confirm)="toggleNumberPad()"></app-number-pad>
+</div>
+

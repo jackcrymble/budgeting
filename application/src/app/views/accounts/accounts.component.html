@@ -1,0 +1,22 @@
+<div class="container">
+    <app-header [title]="'Accounts'"></app-header>
+    <div class="header">
+        <div class="record">
+            <p class="name">All Accounts</p>
+            <p class="balance">{{ allAccountTotal | currency:'GBP' }}</p>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="budget">
+        <p class="subtitle">BUDGET</p>
+        <div class="record" *ngFor="let account of accounts">
+            <p class="name">{{ account.name }}</p>
+            <p class="balance">{{ account.balance | currency:'GBP' }}</p>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="manage">
+        <p class="subtitle">MANAGE</p>
+        <button mat-button (click)="addAccount()" >ADD ACCOUNT</button>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+export const numberPadContent: Array<Array<number|string>> = [
+    [
+        7,
+        8,
+        9,
+    ],
+    [
+        4,
+        5,
+        6,
+    ],
+    [
+        1,
+        2,
+        3,
+    ],
+    [
+        0,
+        'cancel',
+        'check_circle'
+    ]
+];

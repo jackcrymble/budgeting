@@ -1,0 +1,8 @@
+<div class="container">
+    <app-header [title]="'Budget'" [options]="headerOptions" (buttonClicked)="handleHeaderButtonClick($event)"></app-header>
+    <div [style.width]="'100%'" *ngFor="let cg of categoryGroups">
+        <app-category-group [categoryGroup]="cg"></app-category-group>
+    </div>
+</div>
+
+<app-edit-categories *ngIf="showEditView" class="overlay" (closeView)="handleHeaderButtonClick()"></app-edit-categories>

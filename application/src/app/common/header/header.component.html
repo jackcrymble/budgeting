@@ -1,0 +1,8 @@
+<div class="container">
+    <span class="title">{{ title }}</span>
+    <div class="option-container">
+        <button mat-icon-button class="option" *ngFor="let option of options" (click)="onClick(option)">
+            <mat-icon>{{ option.icon }}</mat-icon>
+        </button>
+    </div>
+</div>

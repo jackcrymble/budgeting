@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row" *ngFor="let row of content">
+        <button mat-button *ngFor="let value of row" [disabled]="value == null" (click)="buttonClicked(value)">
+            <span *ngIf="isNumber(value)">{{value}}</span>
+            <mat-icon *ngIf="!isNumber(value)">{{ value }}</mat-icon>
+        </button>
+    </div>
+</div>

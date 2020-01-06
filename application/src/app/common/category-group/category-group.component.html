@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="header">
+        <div class="title-and-check">
+            <button mat-icon-button *ngIf="editMode">
+                <mat-icon>check_box_outline_blank</mat-icon>
+            </button>
+            <p [style.font-weight]="editMode ? '550' : 'normal'">{{categoryGroup.name}}</p>
+        </div>
+        <button mat-icon-button *ngIf="editMode">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div *ngFor="let category of categoryGroup.categories">
+        <app-category [category]="category" [editMode]="editMode"></app-category>
+    </div>
+</div>
