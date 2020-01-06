@@ -38,4 +38,15 @@ export class LocalStorageService {
         localStorage.setItem(reference, JSON.stringify(existing));
         return of(existing);
     }
+
+    export_to_json() {
+        // https://stackoverflow.com/questions/42360665/angular2-to-export-download-json-file
+        const output = {};
+        for (let i = 0; i < localStorage.length; i++) {
+            output[i] = localStorage.key(i);
+        }
+    }
+
+    import_from_json() {}
+
 }
