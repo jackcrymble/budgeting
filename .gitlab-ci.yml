@@ -1,0 +1,17 @@
+
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+karma:
+  only:
+    - web
+  image: trion/ng-cli-karma:8.2.0
+  before_script:
+    - cd application
+    - npm config set strict-ssl false
+    - npm install -g cipm@2.0.0 --silent
+    - cipm install --silent
+    - npm rebuild node-sass
+  script:
+    - ng test --progress false --watch=false --source-map --code-coverage --browsers ChromeHeadless | tee test.log
